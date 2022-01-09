@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Gamedev Canvas Workshop - lesson 1</title>
+
+  <style>/* id="compiled-css" type="text/css">*/
+      canvas { background: #eee; }
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+let ballRadius = 10;
+//let startingDx = 5;
+//let startingDy = -5;
+let balls = [];
+let numberOfBalls = 10;
+
+function Ball(radius, xpos, ypos, color) {
+  this.radius=radius;
+  this.xpos=xpos;
+  this.ypos=ypos;
+  this.color=color;
+  this.dx = Math.floor(Math.random() * 8)+1;
+  this.dy = Math.floor(Math.random() * 8)+1;
+  console.log(this.dx);
+}
+
+function getRandomColor(){
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+
+function getRandomXCoords(){
+	let randomX = Math.floor(Math.random()*canvas.width);
+  return randomX;
+}
+
+function getRandomYCoords(){
+  let randomY = Math.floor(Math.random()*canvas.height);
+  return randomY;
+}
+
+// Debugging trick
+function createBalls2(radius){
+	for (let n = 0; n < numberOfBalls; n++){
+  	balls.push(new Ball(radius,getRandomXCoords(),getRandomYCoords(),getRandomColor()));
+  }
+}
+
+function createBalls(radius=20){
+	for (let n = 0; n < numberOfBalls; n++){
+    newX = getRandomXCoords();
+    newY = getRandomYCoords();
+  	balls.push(new Ball(radius,newX,newY,getRandomColor()));
+  }
+}
+
+function drawBalls() {
+	for(let i = 0; i < numberOfBalls; i++){
+  	ctx.beginPath();
+    ctx.arc(balls[i].xpos, balls[i].ypos, balls[i].radius, 0, Math.PI*2);
+    ctx.fillStyle = balls[i].color; 
+    ctx.fill();
+    ctx.closePath();
+  }
+}
+
+function moveBalls() {
+	for(let i = 0; i < numberOfBalls; i++){
+		
+	    // Moving towards the left side
+		if((balls[i].xpos - balls[i].radius) < 0 && balls[i].dx < 0){
+			balls[i].dx = -balls[i].dx;
+		// Moving towards the right side
+		} else if ((balls[i].xpos + balls[i].radius) > canvas.width-balls[i].radius && balls[i].dx >0){
+		    balls[i].dx = -balls[i].dx;
+		}
+		
+		// Moving towards top
+		if((balls[i].ypos - balls[i].radius) < 0 && balls[i].dy < 0){
+			balls[i].dy = -balls[i].dy;
+		// Moving towards bottom
+		} else if ((balls[i].ypos + balls[i].radius) > canvas.height&& balls[i].dy > 0){
+		    balls[i].dy = -balls[i].dy;
+		}		
+		
+    balls[i].xpos += balls[i].dx;
+    balls[i].ypos += balls[i].dy;
+  }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBalls();
+    moveBalls();
+}
+
+createBalls();
+setInterval(draw, 1);
+  //]]></script>
+
+</body></html>
