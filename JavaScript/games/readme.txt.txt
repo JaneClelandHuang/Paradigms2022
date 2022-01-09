@@ -1,0 +1,1 @@
+These games run in the browser.
