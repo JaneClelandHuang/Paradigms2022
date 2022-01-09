@@ -1,0 +1,13 @@
+// Quiz-1
+// Q1
+var assert = require('assert');
+const x = ["cat","dog","mouse"];
+assert.deepStrictEqual(x, ["cat","mouse","dog"]);
+// Answer = "False".  
+
+// Q4
+function showMessage(sender, message) {
+  sender = '*' + sender + '*'; // pretty printing
+  console.log(` ${sender} : ${message}` );
+}
+console.log(showMessage("Jane"));

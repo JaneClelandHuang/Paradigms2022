@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script>
+  
+// Checks for a valid user
+function getUser() {
+	let systemUser = prompt("Enter your user name:","Admin");
+	if (null) {
+		alert("Canceled");
+		return false;
+	}
+	else if (systemUser == "Admin"){
+		alert ("Admin");
+		return true;
+	}
+	else {
+		alert(`I don't know you ${systemUser}`);
+		return false;
+	}
+}
+	
+// Checks for a valid password
+function getPassword() {
+	let enteredPassword = prompt("Enter your password:","*****");
+	if (enteredPassword == "TheMaster"){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+if (getUser() == true){
+	if (getPassword()==true){
+		alert ("Welcome");
+	}
+}	
+</script>
+</body>
+</html>
+
+
