@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "mocha ./test_files_js/*.js"
+  },
+  "dependencies": {
+    "mocha": "^7.0.1"
+  }
+}
