@@ -1,6 +1,6 @@
 import org.junit.*;
 
-public class MySimpleMathTest {
+public class MySimpleMathTest2 {
     
     @Test
     public void testCheckSignShouldReturnPositive() {
