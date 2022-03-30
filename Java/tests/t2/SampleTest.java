@@ -27,3 +27,4 @@ public class SampleTest {
     public void initializeTest(){
         Assert.assertEquals("Initailization check", "Initialize", sampleClass.initializeData() );
     }
+}
