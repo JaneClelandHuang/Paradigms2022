@@ -1,3 +1,5 @@
+import org.junit.*;
+
 public class SampleTest {
 
     private SampleClass sampleClass;
