@@ -27,6 +27,6 @@ public class SampleTest {
 
     @Test
     public void initializeTest(){
-        Assert.assertEquals("Initailization check", "Initialize", sampleClass.initializeData() );
+        Assert.assertEquals("Initialization check", "Initialize", sampleClass.initializeData() );
     }
 }
