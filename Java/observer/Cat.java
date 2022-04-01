@@ -29,7 +29,7 @@ public class Cat implements IObserver {
 		else
 			catPosition.y--;
 	
-	    System.out.printnl("Cat: " + catPosition.x + " " + catPosition.y);
+	    System.out.println("Cat: " + catPosition.x + " " + catPosition.y);
 	}
 }
 	
