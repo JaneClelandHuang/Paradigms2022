@@ -1,5 +1,5 @@
-public interface Subject{
-	public void registerObserver(Observer o);
-	public void removeObserver (Observer o);
-	public void notifyObservers();
+public interface ISubject{
+	public void registerObserver(IObserver o);
+	public void removeObserver (IObserver o);
+	public void notifyObservers(ISubject s);
 }

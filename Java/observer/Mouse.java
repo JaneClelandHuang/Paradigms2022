@@ -1,5 +1,5 @@
 public class Mouse implements ISubject {
-	List<Observer> observers = new LinkedList<Observer>();
+	List<Observer> observers = new LinkedList<IObserver>();
 	Point myPosition = new Point(400,500);
 	Point targetPosition;
 	Random rand;
@@ -22,12 +22,12 @@ public class Mouse implements ISubject {
 	}
 	
 	@Override
-	public void registerObserver(Observer o) {
+	public void registerObserver(IObserver o) {
 		observers.add(o);
 	}
 	
 	@Override
-	public void removeObserver(Observer o){
+	public void removeObserver(IObserver o){
 		if(observers.contains(o))
 			observers.remove(o);
 	}
