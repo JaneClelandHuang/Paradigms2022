@@ -6,5 +6,8 @@ public class Main
         Cat cat2 = new Cat();
         mouse.registerObserver(cat1);
         mouse.registerObserver(cat2);
+		mouse.move();
+		mouse.move();
+		mouse.move();
     }
 }

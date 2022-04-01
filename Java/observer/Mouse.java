@@ -22,6 +22,11 @@ public class Mouse implements ISubject {
 		targetPosition.y = rand.nextInt(800);
 	}
 	
+	public void move(){
+		setTargetPosition();
+		notifyObservers();
+	}
+	
 	public void setMousePosition(){
 		rand = new Random();
 		myPosition.x = rand.nextInt(800);
