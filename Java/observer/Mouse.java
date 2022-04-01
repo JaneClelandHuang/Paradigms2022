@@ -46,6 +46,7 @@ public class Mouse implements ISubject {
 	
 	@Override
 	public void notifyObservers(){
+		System.out.println("Notifying observers");
 		for(IObserver o: observers){
 			o.update(this);
 		}
