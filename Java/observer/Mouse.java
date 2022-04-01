@@ -8,6 +8,7 @@ public class Mouse implements ISubject {
 	Random rand;
 	
 	public Mouse(){
+		rand = new Random();
 		targetPosition = new Point(0,0);
 		setTargetPosition();
 	}
@@ -17,7 +18,6 @@ public class Mouse implements ISubject {
 	}
 	
 	public void setTargetPosition(){
-		rand = new Random();
 		targetPosition.x = rand.nextInt(800);
 		targetPosition.y = rand.nextInt(800);
 	}
