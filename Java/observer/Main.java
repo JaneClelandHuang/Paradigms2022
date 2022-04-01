@@ -7,12 +7,12 @@ public class Main
         mouse.registerObserver(cat1);
         mouse.registerObserver(cat2);
 		mouse.move();
-		cat1.move();
-		cat1.move();
-		cat1.move();
-		cat2.move();
-		cat2.move();
-		cat2.move();
+		cat1.moveCat();
+		cat1.moveCat();
+		cat1.moveCat();
+		cat2.moveCat();
+		cat2.moveCat();
+		cat2.moveCat();
 		
     }
 }
