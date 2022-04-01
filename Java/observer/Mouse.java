@@ -38,4 +38,11 @@ public class Mouse implements ISubject {
 		if(observers.contains(o))
 			observers.remove(o);
 	}
+	
+	@Override
+	public void notifyObservers(){
+		for(IObserver o: observers){
+			o.update(this);
+		}
+	}
 }
