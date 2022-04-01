@@ -1,3 +1,6 @@
+import java.util.*;
+import java.awt.Point;
+
 public class Cat implements IObserver {
 	Point mousePosition;
 	Point catPosition;

@@ -1,3 +1,6 @@
+import java.util.*;
+import java.awt.Point;
+
 public class Mouse implements ISubject {
 	List<Observer> observers = new LinkedList<IObserver>();
 	Point myPosition = new Point(400,500);
