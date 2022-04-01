@@ -1,4 +1,4 @@
-public class Main{
+public class Game{
     public static void main(String[] args) {
         Mouse mouse = new Mouse();
         Cat cat1 = new Cat();
