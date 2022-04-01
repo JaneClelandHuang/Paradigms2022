@@ -9,13 +9,13 @@ public class Mouse implements ISubject {
 		setTargetPosition();
 	}
 	
-	private void setTargetPosition(){
+	public void setTargetPosition(){
 		rand = new Random();
 		targetPosition.x = rand.nextInt(800);
 		targetPosition.y = rand.nextInt(800);
 	}
 	
-	privte void setMousePosition(){
+	public void setMousePosition(){
 		rand = new Random();
 		myPosition.x = rand.nextInt(800);
 		myPosition.y = rand.nextInt(800);
