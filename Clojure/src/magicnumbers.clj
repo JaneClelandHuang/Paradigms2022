@@ -6,4 +6,5 @@
      (if (= (+ (* b b) (* a a)) (* c c)) 
        (printf "%d, %d, %d\n" a b c))))
 	   
-(triangle)
+(defn run [opts]
+   (triangle))
