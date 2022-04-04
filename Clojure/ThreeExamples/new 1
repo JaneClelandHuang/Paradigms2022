@@ -1,0 +1,28 @@
+(ns clojure.examples.hello
+   (:gen-class))
+(defn hello-world []
+   (let [message "Hiya"]
+   (println message)))
+(hello-world)
+
+(defn mytest [v n] 
+   (println v)
+   (println n))
+            
+
+(defn generatePermutations [v n] 
+   (if (zero? n) 
+      (do (println (apply str v)) v) 
+ 
+      (loop [i 0 a v] 
+         (if (< i n) 
+            (do 
+  		       (let [a (generatePermutations a (dec n))] 
+               (recur (inc i) (swap a (if (even? n) 0 i) n)))) 
+            (generatePermutations a (dec n)))))) 
+ 
+
+(let [word (vec [1 2 3])]
+   (mytest word 3)
+   (generatePermutations word 3))
+   
