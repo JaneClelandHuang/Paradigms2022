@@ -1,4 +1,4 @@
-(ns macro-example
+(ns macroexample
    (:gen-class))
 
 (defmacro eval-infix [form]
