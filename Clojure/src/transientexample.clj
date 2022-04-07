@@ -11,7 +11,7 @@
    (loop [i 0 v (transient[])]
 		(if (< i n)
 			(recur (inc i) (conj! v i))
-	(persisten! v))))	
+	(persistent! v))))	
   
 (defn run [opts]
    (println "Non transient")
