@@ -9,4 +9,4 @@
 )))
 	   
 (defn run [opts]
-   (factorial n))
+   (factorial 3))
