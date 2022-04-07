@@ -15,6 +15,8 @@
   
 (defn run [opts]
    (println "Non transient")
-   (time (vrange 100000))
+   (time (vrange 1000000))
+   (println "Transient")
+   (time (vrange2 1000000))
 )
    
