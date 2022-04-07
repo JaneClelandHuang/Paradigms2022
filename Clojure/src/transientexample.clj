@@ -6,7 +6,12 @@
 		(if (< i n)
 			(recur (inc i) (conj v i))
 	v)))
-	
+
+(defn vrange2 [n]
+   (loop [i 0 v (transient[])]
+		(if (< i n)
+			(recur (inc i) (conj! v i))
+	(persisten! v))))	
   
 (defn run [opts]
    (println "Non transient")
