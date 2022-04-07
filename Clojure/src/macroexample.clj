@@ -6,7 +6,6 @@
 
 (defn run [opts]
    (use 'clojure.test)
-   (eval-infix (20 * 7 ))
-   (* 20 7)
+   (println(eval-infix (20 * 7 )))
 )
    
