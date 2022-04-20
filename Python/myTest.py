@@ -1,7 +1,6 @@
-# Test
-import abc
+from abc import ABC, abstractmethod
 
-class State(metaclass=abc.ABCMeta):
+class State(ABC):
     def __init__(self):
         print ("Hello")
 

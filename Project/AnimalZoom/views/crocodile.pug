@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Animal-Zoom, a place for animals to meet.
+  .topnav
+    button#zooButton Zoo
+    button#camelButton Camel
+    button#monkeyButton Monkey
+    button#crocButton Crocodile
+    button#cowButton Cow 
+    button#zoomButton ZoomTime
+    button#mapButton ZooMap
+    script(src='javascripts/client.js')
+  .main
+    h1 Hello #{animal_name}
+    p #{about}
+    img(src='images/crocodile.jpg',style='width:500px')

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  h1 Animal-Zoom, a place for animals to meet.
+  .topnav
+    button#zooButton Zoo
+    button#camelButton Camel
+    button#monkeyButton Monkey
+    button#crocButton Crocodile
+    button#cowButton Cow
+    button#zoomButton ZoomTime
+    button#mapButton ZooMap
+
+  .main
+    
+
+    script(src='javascripts/client.js')
+    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAsUd8gZ2A5gLVVAeKRkWtniR3NL6eseL4&callback=initMap', <='', script='')
+  .map
+    #map

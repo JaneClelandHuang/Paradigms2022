@@ -1,15 +1,12 @@
 class GumballMachine:
-
     def __init__(self,count):
         self.sold_out = 0
         self.no_quarter = 1
         self.has_quarter = 2
         self.sold = 3
-
         self.state = self.sold_out
         self.count = count
-		
-		# Inventory of gumballs
+
         if self.count > 0:
             self.state = self.no_quarter
 
@@ -63,7 +60,9 @@ class GumballMachine:
             else:
                 self.state = self.no_quarter
 
+#Client Code
 gbm = GumballMachine(5)
 gbm.insert_quarter()
 gbm.turn_crank()
 			
+            
