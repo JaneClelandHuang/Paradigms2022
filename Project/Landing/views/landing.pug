@@ -6,7 +6,7 @@ block content
   //- p Chat Messages
   //-   span.received-message #{example}
   ul#messages
-    li Message 1
+    
   
     
   form(action="/",method="POST")
@@ -16,6 +16,7 @@ block content
   script(src="/socket.io/socket.io.js")
   script.
     var socket = io("http://localhost:3000");
+
     var messages = document.getElementById('messages');
     var form = document.getElementById('form');
     var input = document.getElementById('input');
