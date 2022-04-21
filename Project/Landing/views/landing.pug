@@ -3,7 +3,45 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  //- p Chat Messages
+  //-   span.received-message #{example}
+  ul#messages
+    li Message 1
+  
+    
   form(action="/",method="POST")
-    input(name="lead_email", type="email",placeholder="Enter your email address: ")
+    input(name="lead_email", type="text",placeholder="Type your message here " onKeyup='send(this)')
     button(type="submit") Submit
 
+  script(src="/socket.io/socket.io.js")
+  script.
+    var socket = io("http://localhost:3000");
+    var messages = document.getElementById('messages');
+    var form = document.getElementById('form');
+    var input = document.getElementById('input');
+
+    //- form.addEventListener('submit', function(e) {
+    //- e.preventDefault();
+    //- if (input.value) {
+    //-   console.log("sending message from client on submit")
+    //-   socket.emit('messageChange', input.value);
+    //-   input.value = '';
+    //- }
+    //- });
+    socket.on('connect', function(){
+      socket.emit('join',"Hello from client");
+    })
+    socket.on('receive', function (message) {
+      console.log('received %s', message);
+      //- document.querySelector('.received-message').innerText = message;
+      var item = document.createElement('li');
+      item.textContent = message;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+      });
+    function send(input) {
+      console.log(input.value)
+      var value = input.value;
+      console.log('Sending Client Message: %s to Server', value);
+      socket.emit('messageChange', {message: value});
+    }
