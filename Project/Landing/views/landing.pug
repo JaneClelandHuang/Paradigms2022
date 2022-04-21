@@ -1,34 +1,23 @@
 extends layout
 
 block content
+  
   h1= title
   p Welcome to #{title}
   //- p Chat Messages
   //-   span.received-message #{example}
   ul#messages
-    
   
-    
-  form(action="/",method="POST")
-    input(name="lead_email", type="text",placeholder="Type your message here " onKeyup='send(this)')
-    button(type="submit") Submit
+  //- form()
+  input(name="lead_email", type="text",placeholder="Type your message here ")
+  button(type="submit" id="btn" onclick='sendOnSubmit()') Submit
 
   script(src="/socket.io/socket.io.js")
   script.
     var socket = io("http://localhost:3000");
-
     var messages = document.getElementById('messages');
-    var form = document.getElementById('form');
-    var input = document.getElementById('input');
-
-    //- form.addEventListener('submit', function(e) {
-    //- e.preventDefault();
-    //- if (input.value) {
-    //-   console.log("sending message from client on submit")
-    //-   socket.emit('messageChange', input.value);
-    //-   input.value = '';
-    //- }
-    //- });
+    
+    
     socket.on('connect', function(){
       socket.emit('join',"Hello from client");
     })
@@ -41,8 +30,12 @@ block content
       window.scrollTo(0, document.body.scrollHeight);
       });
     function send(input) {
-      console.log(input.value)
       var value = input.value;
       console.log('Sending Client Message: %s to Server', value);
       socket.emit('messageChange', {message: value});
+    }
+    function sendOnSubmit(){
+      var input = document.getElementsByName('lead_email')[0];
+      send(input)
+      input.value=""
     }
