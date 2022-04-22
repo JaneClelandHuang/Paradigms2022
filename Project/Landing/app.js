@@ -9,16 +9,6 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-
-
-const http = require('http')
-const port = 3000
-
-
- 
-
-
-// const { Socket } = require('dgram');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -46,27 +36,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-
-var server = http.createServer(app);
-
-const io = require('socket.io')(server)
-
-
-io.sockets.on('connection', function (socket) {
-  socket.on('join', function(data) {
-    console.log(data);});
-  socket.on('messageChange', function (data) {
-    console.log("received from client",data);
-    // socket.emit('receive', data.message.split('').reverse().join('') );
-    io.emit('receive', data.message);
-    // socket.emit('receive', data );
-  });
-});
-
-server.listen(port, function(){
-  console.log('Express server listening on port ' + port);
 });
 
 module.exports = app;
